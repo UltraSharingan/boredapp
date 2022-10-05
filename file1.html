@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height:100vh;
+            background-image:url("https://i.pinimg.com/originals/96/cf/0f/96cf0f6e0ecfe1fe60fd7f6cf78dfd18.jpg");
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div{
+            font-size: xx-large;
+            background-color: rgba(111, 111, 111, 0.342);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        @media(max-width:768px){
+            body{
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: 0px 37vh;
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+<script>
+    const div=document.querySelector("div");
+    const fillbored=async()=>{
+        const bored=await fetch("https://www.boredapi.com/api/activity");
+        const fbored=await bored.json();
+        div.innerHTML=fbored.activity;
+    }
+    fillbored();
+</script>
+</html>
